@@ -13,15 +13,16 @@ use App\Http\Controllers\RoomTypeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/dashboard', DashboardComponent::class);
+
 Route::get('/', function () {
-    return view('layouts.home');
+    return view('home');
 });
 //Admin route 
 Route::get('admin', function () {
-    return view('layouts.layout');
+    return view('dashboard-component');
 });
 //roomtype controller 
+Route::get('admin/roomtype/{id}/delete',[RoomTypeController::class,'destroy']);
 Route::resource('admin/roomtype',RoomTypeController::class);
 
 

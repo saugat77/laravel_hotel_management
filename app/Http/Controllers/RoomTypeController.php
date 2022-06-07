@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\RoomType;
 
 use Illuminate\Http\Request;
 
@@ -13,7 +14,8 @@ class RoomTypeController extends Controller
      */
     public function index()
     {
-        return view('livewire.index');
+        $data=Roomtype::all();
+        return view('roomtype.index',['data'=>$data]);
     }
 
     /**
@@ -23,7 +25,7 @@ class RoomTypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('roomtype.create');       
     }
 
     /**
@@ -34,7 +36,12 @@ class RoomTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data=new RoomType;
+        $data->title=$request->title;
+        $data->detail=$request->detail;
+        $data->save();
+
+        return redirect('admin/roomtype/create')->with('success','Data has been added');
     }
 
     /**
@@ -45,7 +52,8 @@ class RoomTypeController extends Controller
      */
     public function show($id)
     {
-        //
+        $data=Roomtype::find($id);
+        return view('roomtype.show',['data'=>$data]);
     }
 
     /**
@@ -56,7 +64,8 @@ class RoomTypeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data=Roomtype::find($id);
+        return view('roomtype.edit',['data'=>$data]);
     }
 
     /**

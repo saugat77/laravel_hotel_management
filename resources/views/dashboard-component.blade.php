@@ -1,3 +1,4 @@
+   @extends('layout')
    @section('content')
    <!-- Begin Page Content -->
           <!-- Begin Page Content -->
