@@ -25,13 +25,6 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tfoot>
-                    <tr>
-                    <th>#</th>
-                        <th>Title</th>
-                        <th>Action</th>
-                    </tr>
-                </tfoot>
                 <tbody>
                     @if ($data)
                         @foreach ($data as $d )    
