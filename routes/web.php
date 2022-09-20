@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\DashboardComponent;
 use App\Http\Controllers\RoomTypeController;
+use App\Http\Controllers\RoomController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,4 +26,6 @@ Route::get('admin', function () {
 Route::get('admin/roomtype/{id}/delete',[RoomTypeController::class,'destroy']);
 Route::resource('admin/roomtype',RoomTypeController::class);
 
-
+//room controller 
+Route::get('admin/room/{id}/delete',[RoomController::class,'destroy']);
+Route::resource('admin/room',RoomController::class);
