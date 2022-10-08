@@ -18,14 +18,15 @@ use App\Http\Controllers\RoomController;
 Route::get('/', function () {
     return view('home');
 });
-//Admin route 
+//Admin route
 Route::get('admin', function () {
     return view('dashboard-component');
 });
-//roomtype controller 
+//roomtype controller
 Route::get('admin/roomtype/{id}/delete',[RoomTypeController::class,'destroy']);
 Route::resource('admin/roomtype',RoomTypeController::class);
 
-//room controller 
+//room controller
 Route::get('admin/room/{id}/delete',[RoomController::class,'destroy']);
+
 Route::resource('admin/room',RoomController::class);
