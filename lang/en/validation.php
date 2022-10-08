@@ -151,6 +151,9 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'full_name'=>[
+            'required' => 'Name is required'
+        ],
     ],
 
     /*
@@ -163,6 +166,7 @@ return [
     | of "email". This simply helps us make our message more expressive.
     |
     */
+   
 
     'attributes' => [],
 

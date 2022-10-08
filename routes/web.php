@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\DashboardComponent;
 use App\Http\Controllers\RoomTypeController;
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\CustomerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,6 +28,10 @@ Route::get('admin/roomtype/{id}/delete',[RoomTypeController::class,'destroy']);
 Route::resource('admin/roomtype',RoomTypeController::class);
 
 //room controller
-Route::get('admin/room/{id}/delete',[RoomController::class,'destroy']);
+Route::get('admin/rooms/{id}/delete',[RoomController::class,'destroy']);
+Route::resource('admin/rooms',RoomController::class);
 
-Route::resource('admin/room',RoomController::class);
+
+//Customer
+Route::get('admin/customer/{id}/delete',[CustomerController::class,'destroy']);
+Route::resource('admin/customer',CustomerController::class);

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Blank</title>
+    <title>Admin Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -36,7 +36,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">Admin Dashboard <sup>:)</sup></div>
             </a>
 
             <!-- Divider -->
@@ -59,12 +59,12 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                <a class="nav-link @if(!request()->is('admin/roomtype/*')) collapsed @endif" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Room Type</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo" class="collapse @if(request()->is('admin/roomtype*')) show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{url('admin/roomtype/create')}}">Add New</a>
                         <a class="collapse-item" href="{{url('admin/roomtype')}}">View All</a>
@@ -73,15 +73,30 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#roomMaster"
+                <a class="nav-link @if(!request()->is('admin/rooms*')) collapsed @endif" href="#" data-toggle="collapse" data-target="#roomMaster"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Rooms</span>
                 </a>
-                <div id="roomMaster" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="roomMaster" class="collapse @if (request()->is('admin/rooms*')) show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{url('admin/room/create')}}">Add New</a>
-                        <a class="collapse-item" href="{{url('admin/room')}}">View All</a>
+                        <a class="collapse-item" href="{{url('admin/rooms/create')}}">Add New</a>
+                        <a class="collapse-item" href="{{url('admin/rooms')}}">View All</a>
+                        
+                    </div>
+                </div>
+            </li>
+            {{-- CustomerMaster --}}
+            <li class="nav-item">
+                <a class="nav-link @if (!request()->is('admin/customer*')) collapsed @endif" href="#" data-toggle="collapse" data-target="#CustpmerMaster"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Customers</span>
+                </a>
+                <div id="CustpmerMaster" class="collapse @if (request()->is('admin/customer*')) show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{url('admin/customer/create')}}">Add New</a>
+                        <a class="collapse-item" href="{{url('admin/customer')}}">View All</a>
                         
                     </div>
                 </div>

@@ -8,8 +8,8 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Add Room
-        <a href="{{url('admin/room')}}" class="float-right btn btn-success btn-sm">View All</a>
+        <h6 class="m-0 font-weight-bold text-primary">Add Customer
+        <a href="{{url('admin/customer')}}" class="float-right btn btn-success btn-sm">View All</a>
 
         </h6>
     </div>
@@ -18,29 +18,33 @@
             <p class="text-success">{{session('success')}}</p>
         @endif
         <div class="table-responsive">
-            <form method="post" action="{{url('admin/rooms')}}">
-                @csrf
                 <table class="table table-bordered">
                     <tr>
-                        <th>RoomTypes</th>
-                        <td>
-                            <select class="form-control" name="rt_id">
-                                <option value="0"  >--- select ---</option>
-                                @foreach ($roomtypes as $rt )
-                                  <option value="">{{$rt->title}}</option> 
-                                @endforeach
-                            </select>
-                        </td>
+                        <th>Full Name</th>
+                        <td>{{$data->full_name}} </td>
                     </tr>
                 <tr>
-                    <th>Title</th>
-                    <td><input name="title" type="text" class="form-control"></td>
+                    <th>Email</th>
+                    <td>{{$data->email}} </td>
+                  </tr>
+                <tr>
+                    <th>Mobile</th>
+                    <td>{{$data->mobile}} </td>
+                    
+                
                 </tr>
                 <tr>
-                    <td colspan="2"><input type="submit" class="btn btn-primary"></td>
+                    <th>Image</th>
+                    <td> <img width="100px" src="{{asset($data->image)}}" alt="images.{{$data->id}}"> </td>
+                    
                 </tr>
+                <tr>
+                    <th>Address</th>
+                    <td>{{$data->address}} </td>
+                    
+                </tr>
+               
            </table>
-           </form>
         </div>
     </div>
 </div>
