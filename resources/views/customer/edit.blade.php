@@ -60,7 +60,7 @@
                     <td>
                         <input name="image" type="file" class="form-control">
                         <input name="image_prev" type="hidden" class="form-control" value="{{$data->image}}">   
-                        <img width="100px" src="{{asset($data->image)}}" alt="">
+                        <img width="100px" src="{{asset('storage/app/'.$data->image)}}" alt="img">
                         @error('image')
                         <p class="text-danger">{{$message}}</p> 
                      @enderror</td>

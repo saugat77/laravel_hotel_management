@@ -45,13 +45,15 @@ class CustomerController extends Controller
             'image' => 'nullable',
             'address' => 'required',
         ]);
-        $img_path = $request->file('image')->store('storage/imgs');
+        $img_path = $request->file('image');
+        $filename = $img_path.'_.'.$img_path->getClientOriginalExtension();
+        $success = $img_path->storeAs('public/app', $filename);
         $data=new Customer;
         $data->full_name=$request->full_name;
         $data->email=$request->email;
         $data->password=Hash::make($request->password);
         $data->mobile=$request->mobile;
-        $data->image=$img_path;
+        $data->image=$success;
         $data->address=$request->address;
         $data->save();
 
