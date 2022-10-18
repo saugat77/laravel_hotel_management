@@ -10,7 +10,13 @@
     <meta name="author" content="">
 
     <title>Admin Dashboard</title>
-
+    @include('notify::components.notify')
+    @notifyJs
+    @if(!Session::has('adminData'))
+        <script type="text/javascript">
+            window.location.href="{{url('admin/login')}}";
+        </script>
+    @endif
     <!-- Custom fonts for this template-->
     <link href="{{asset('/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link
@@ -42,12 +48,6 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link" href="/dashboard">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -68,7 +68,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{url('admin/roomtype/create')}}">Add New</a>
                         <a class="collapse-item" href="{{url('admin/roomtype')}}">View All</a>
-                        
+
                     </div>
                 </div>
             </li>
@@ -82,7 +82,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{url('admin/rooms/create')}}">Add New</a>
                         <a class="collapse-item" href="{{url('admin/rooms')}}">View All</a>
-                        
+
                     </div>
                 </div>
             </li>
@@ -97,10 +97,17 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{url('admin/customer/create')}}">Add New</a>
                         <a class="collapse-item" href="{{url('admin/customer')}}">View All</a>
-                        
+
                     </div>
                 </div>
             </li>
+                 <!-- Nav Item - Dashboard -->
+                 <li class="nav-item">
+                    <a class="nav-link" href="{{route('logout')}}">
+                        <i class="fas fa-fw fa-sign-out-alt"></i>
+                        <span>Logout</span></a>
+                </li>
+
         </ul>
         <!-- End of Sidebar -->
 
@@ -369,7 +376,7 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
-   
+
     @yield('script')
 
 </body>

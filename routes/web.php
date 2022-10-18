@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\DashboardComponent;
 use App\Http\Controllers\RoomTypeController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\CustomerController;
 /*
@@ -20,6 +21,10 @@ Route::get('/', function () {
     return view('home');
 });
 //Admin route
+Route::get('admin/login',[AdminController::class,'login'])->name('login');
+Route::post('admin/login',[AdminController::class,'check_login']);
+Route::get('admin/logout',[AdminController::class,'logout'])->name('logout');
+
 Route::get('admin', function () {
     return view('dashboard-component');
 });
