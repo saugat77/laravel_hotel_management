@@ -21,11 +21,15 @@
                     <td>{{$data->title}} </td>
                 </tr>
                 <tr>
+                    <th>Price</th>
+                    <td>{{$data->price}} </td>
+                </tr>
+                <tr>
                     <th>Details</th>
                     <td>{{$data->detail}}</td>
                 </tr>
            </table>
-        
+
         </div>
     </div>
 </div>

@@ -24,11 +24,15 @@
                 <table class="table table-bordered">
                 <tr>
                     <th>Title</th>
-                    <td><input value="{{$data->title}}" name="title" type="text" class="form-control"></td>
+                    <td><input value="{{$data->title}}" name="title" type="text" class="form-control col-md-4"></td>
+                </tr>
+                <tr>
+                    <th>Price</th>
+                    <td><input value="{{$data->price}}" name="price" type="text" class="form-control col-md-4"></td>
                 </tr>
                 <tr>
                     <th>Details</th>
-                    <td><textarea name="detail" class="form-control">{{$data->detail}}</textarea> </td>
+                    <td><textarea name="detail" class="form-control col-md-4">{{$data->detail}}</textarea> </td>
                 </tr>
                 <tr>
                     <td colspan="2"><input type="submit" class="btn btn-primary"></td>
@@ -47,7 +51,7 @@
 <!-- Custom styles for this page -->
   <link href="{{asset('/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 
- 
+
 
  <!-- Page level plugins -->
  <script src="{{asset('/datatables/jquery.dataTables.min.js')}}"></script>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\RoomType;
+use App\Models\RoomTypeImage;
 
 use Illuminate\Http\Request;
 
@@ -25,7 +26,7 @@ class RoomTypeController extends Controller
      */
     public function create()
     {
-        return view('roomtype.create');       
+        return view('roomtype.create');
     }
 
     /**
@@ -36,10 +37,25 @@ class RoomTypeController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title'=>'required',
+            'detail'=>'required',
+            'price'=>'required'
+        ]);
         $data=new RoomType;
         $data->title=$request->title;
+        $data->price=$request->price;
         $data->detail=$request->detail;
         $data->save();
+
+        foreach($request->file('imgs') as $img){
+            $imgpath = $img->store('public/imgs');
+            $imgdata = new RoomTypeImage;
+            $imgdata->img_src = $imgpath;
+            $imgdata->room_type_id = $data->id;
+            $imgdata->img_alt = $request->title;
+            $imgdata->save();
+        }
 
         return redirect('admin/roomtype/create')->with('success','Data has been added');
     }
@@ -52,11 +68,11 @@ class RoomTypeController extends Controller
      */
     public function show($id)
     {
-       
+
 
         $data=Roomtype::find($id);
         return view('roomtype.show',['data'=>$data]);
-        
+
 
     }
 

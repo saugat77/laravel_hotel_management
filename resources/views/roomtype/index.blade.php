@@ -22,19 +22,23 @@
                     <tr>
                         <th>#</th>
                         <th>Title</th>
+                        <th>Price</th>
+                        <th>Details</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     @if ($data)
-                        @foreach ($data as $d )    
+                        @foreach ($data as $d )
                     <tr>
                     <td>{{$d->id}} </td>
                     <td>{{$d->title}} </td>
+                    <td>{{$d->price}} </td>
+                    <td>{{$d->detail}} </td>
                         <td>
-                        <a href="{{url('admin/roomtype/'.$d->id)}} " class="btn btn-info btn-sm" ><i class="fa fa-eye"></i> </a> 
+                        <a href="{{url('admin/roomtype/'.$d->id)}} " class="btn btn-info btn-sm" ><i class="fa fa-eye"></i> </a>
                         <a href="{{url('admin/roomtype/'.$d->id.'/edit')}} " class="btn btn-primary btn-sm"  ><i class="fa fa-edit"></i> </a>
-                        <a onclick="return confirm('Are u sure u want to delete?')" href="{{url('admin/roomtype/'.$d->id.'/delete')}} " class="btn btn-danger btn-sm" ><i class="fa fa-trash"></i> </a> 
+                        <a onclick="return confirm('Are u sure u want to delete?')" href="{{url('admin/roomtype/'.$d->id.'/delete')}} " class="btn btn-danger btn-sm" ><i class="fa fa-trash"></i> </a>
                         </td>
                     </tr>
                     </tbody>
@@ -53,7 +57,7 @@
 <!-- Custom styles for this page -->
   <link href="{{asset('/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 
- 
+
 
  <!-- Page level plugins -->
  <script src="{{asset('vendor/datatables/jquery.dataTables.min.js')}}"></script>
