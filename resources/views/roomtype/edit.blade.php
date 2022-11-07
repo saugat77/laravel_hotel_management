@@ -35,6 +35,18 @@
                     <td><textarea name="detail" class="form-control col-md-4">{{$data->detail}}</textarea> </td>
                 </tr>
                 <tr>
+                    <td>Gallery Images</td>
+                    <td>
+                        <table class="table table-bordered">
+                            <tr>
+                                @foreach ($gallery as $image)
+                                    <td> <img src="{{asset($image->img_src)}}" alt=""> </td>
+                                @endforeach
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
                     <td colspan="2"><input type="submit" class="btn btn-primary"></td>
                 </tr>
            </table>

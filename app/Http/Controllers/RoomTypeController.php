@@ -71,6 +71,7 @@ class RoomTypeController extends Controller
 
 
         $data=Roomtype::find($id);
+
         return view('roomtype.show',['data'=>$data]);
 
 
@@ -86,7 +87,8 @@ class RoomTypeController extends Controller
     {
 
         $data=Roomtype::find($id);
-        return view('roomtype.edit',['data'=>$data]);
+        $gallery = RoomTypeImage::where('room_type_id',$id)->get();
+        return view('roomtype.edit',['data'=>$data,'gallery'=>$gallery]);
     }
 
     /**
